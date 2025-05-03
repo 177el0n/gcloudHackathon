@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+
+#uvのインストール
+RUN pip install --no-cache-dir uv
+
+#作業ディレクトリを設定
+WORKDIR /app
+
+#必要なファイルをコンテナにコピー
+COPY src/pyproject.toml /app/
+
+#uvを使って依存関係をインストール
+RUN uv install --no-dev
+
+#アプリケーションコードをコンテナにコピー
+COPY . /app
+
+#アプリケーションを実行
+CMD ["uv", "run", "python", "app.py"]
