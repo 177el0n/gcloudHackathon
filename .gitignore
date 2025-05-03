@@ -1,4 +1,5 @@
 secretfile/
 .terraform/
 *.tfstate*
-*.venv
+**.venv
+**__pycache__/
