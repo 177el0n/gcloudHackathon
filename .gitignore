@@ -1,0 +1,4 @@
+secretfile/
+.terraform/
+*.tfstate*
+*.venv
